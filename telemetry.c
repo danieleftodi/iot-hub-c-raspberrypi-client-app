@@ -141,7 +141,7 @@ void sha256(const char *str, char outputBuffer[], int len)
 
 void exec_command(char command [], char result [])
 {
-    FILE * pipe = popen(command, "r");
+    FILE * pipe = fopen(command, "r");
     if (pipe == NULL)
     {
         result = "unknown";
