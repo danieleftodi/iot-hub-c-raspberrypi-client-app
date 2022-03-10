@@ -4,17 +4,17 @@ sudo apt-get update
 sudo apt-get install -y libssl-dev git cmake build-essential curl libcurl4-openssl-dev uuid-dev
 
 #On Raspbian Stretch precompiled sdk from ppa is no good. Lets compile it manually
-cd ~
-mkdir Source
-cd Source
+mkdir -p ~/gits
+cd ~/gits
 git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+cd ~/gits/azure-iot-sdk-c/
+git checkout LTS_01_2022_Ref01
 
-cd azure-iot-sdk-c/build_all/linux
+cd ~/gits/azure-iot-sdk-c/build_all/linux
 ./build.sh --no-make
 
-cd ../../cmake/iotsdk_linux
+cd ~/gits/azure-iot-sdk-c/cmake/
 make
-
 sudo make install
 '
 
@@ -69,12 +69,12 @@ else
     echo "cmake version check pass (current:$CMAKE_VER,require:$CMAKE_LEAST)"
 fi
 
-git clone https://github.com/WiringPi/WiringPi
+git clone --recursive https://github.com/WiringPi/WiringPi.git
 cd ./WiringPi
 ./build
 cd ..
 
-git clone https://github.com/kgabis/parson.git
+git clone --recursive https://github.com/kgabis/parson.git
 cd ./parson
 mv parson.c parson.h ..
 cd ..
