@@ -31,7 +31,7 @@ You can follow the image to connect your BME280 and a LED with your Raspberry Pi
    ```bash
    sudo apt-get install git-core
 
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
+   git clone https://github.com/danieleftodi/iot-hub-c-raspberrypi-client-app.git
    ```
 
 2. Run setup script:
@@ -39,22 +39,22 @@ You can follow the image to connect your BME280 and a LED with your Raspberry Pi
    ```bash
    cd ./iot-hub-c-raspberrypi-client-app
 
-   sudo chmod u+x setup.sh
+   chmod +x setup.sh
 
-   sudo ./setup.sh
+   ./setup.sh
    ```
 
    **If you don't have a physical BME280, you can use '--simulated-data' as command line parameter to simulate temperature&humidity data.**
 
    ```bash
-   sudo ./setup.sh --simulated-data
+   ./setup.sh --simulated-data
    ```
 
 ## Run your client application
 Run the client application with root priviledge, and you also need provide your Azure IoT hub device connection string, note your connection should be quoted in the command.
 
 ```bash
-sudo ./app '<your Azure IoT hub device connection string>'
+./app '<your Azure IoT hub device connection string>'
 ```
 
 ### Send Cloud-to-Device command
